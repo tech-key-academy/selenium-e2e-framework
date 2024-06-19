@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 
     }
      @Test
-     void blankFieldvalidation()
+     void verifyBlankFieldValidation()
      {
         WebDriver driver = new ChromeDriver();
         driver.get(LANDING_PAGE_URL);
@@ -33,8 +33,12 @@ import org.testng.annotations.Test;
         Assert.assertTrue(firstNameValidationMessage.isDisplayed());
         WebElement lastNameValidationMessage = driver.findElement(By.xpath("//div[@for='lastname']"));
         Assert.assertTrue(lastNameValidationMessage.isDisplayed());
-        System.out.println("hello");
-
+        WebElement emailFieldValidationMessage = driver.findElement(By.xpath("//div[@for='email_address']"));
+        Assert.assertTrue(emailFieldValidationMessage.isDisplayed());
+        WebElement passwordFieldValidationMessage = driver.findElement(By.xpath("//div[@for='password']"));
+        Assert.assertTrue(passwordFieldValidationMessage.isDisplayed());
+        WebElement confirmPasswordFieldMessage = driver.findElement(By.xpath("//div[@for='password-confirmation']"));
+        Assert.assertTrue(confirmPasswordFieldMessage.isDisplayed());
      }
 }
 
