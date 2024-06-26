@@ -18,7 +18,6 @@ import org.testng.annotations.Test;
         String title = driver.getTitle();
 
         Assert.assertEquals(title,"Home Page");
-
     }
      @Test
      void verifyBlankFieldValidation()
@@ -27,7 +26,7 @@ import org.testng.annotations.Test;
         driver.get(LANDING_PAGE_URL);
         WebElement createAnAccount = driver.findElement(By.xpath("//a[text()='Create an Account']"));
         createAnAccount.click();
-        WebElement createAnAccountButton = driver.findElement(By.xpath("//button[@type='submit']"));
+        WebElement createAnAccountButton = driver.findElement(By.xpath("//button[@class='action submit primary']"));
         createAnAccountButton.click();
         WebElement firstNameValidationMessage = driver.findElement(By.xpath("//div[@for='firstname']"));
         Assert.assertTrue(firstNameValidationMessage.isDisplayed());
@@ -41,4 +40,3 @@ import org.testng.annotations.Test;
         Assert.assertTrue(confirmPasswordFieldMessage.isDisplayed());
      }
 }
-
