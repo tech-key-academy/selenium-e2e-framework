@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 
  public class FirstTestClass {
      String LANDING_PAGE_URL = "https://magento.softwaretestingboard.com/";
-     String CREATE_AN_ACCOUNT = "//button[@type='submit']";
+     String CREATE_AN_ACCOUNT = "//a[text()='Create an Account']";
+     String CREATE_AN_ACCOUNT_SUBMIT_BUTTON = "//button[@class='action submit primary']"
 
     @Test
     void verifyHomePageLanding()
@@ -25,9 +26,9 @@ import org.testng.annotations.Test;
      {
         WebDriver driver = new ChromeDriver();
         driver.get(LANDING_PAGE_URL);
-        WebElement createAnAccount = driver.findElement(By.xpath("//a[text()='Create an Account']"));
+        WebElement createAnAccount = driver.findElement(By.xpath(CREATE_AN_ACCOUNT));
         createAnAccount.click();
-        WebElement createAnAccountButton = driver.findElement(By.xpath("//button[@class='action submit primary']"));
+        WebElement createAnAccountButton = driver.findElement(By.xpath(CREATE_AN_ACCOUNT_SUBMIT_BUTTON));
         createAnAccountButton.click();
         WebElement firstNameValidationMessage = driver.findElement(By.xpath("//div[@for='firstname']"));
         Assert.assertTrue(firstNameValidationMessage.isDisplayed());
