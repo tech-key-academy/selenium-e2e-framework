@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
         String title = driver.getTitle();
 
         Assert.assertEquals(title,"Home Page");
+        driver.close();
     }
      @Test
      void verifyBlankFieldValidation()
@@ -38,5 +39,6 @@ import org.testng.annotations.Test;
         Assert.assertTrue(passwordFieldValidationMessage.isDisplayed());
         WebElement confirmPasswordFieldMessage = driver.findElement(By.xpath("//div[@for='password-confirmation']"));
         Assert.assertTrue(confirmPasswordFieldMessage.isDisplayed());
+        driver.quit();
      }
 }
